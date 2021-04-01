@@ -3,7 +3,7 @@ import actions from './actions.js';
 import getters from './getters.js';
 
 export default {
-    namespaces: true,
+    namespaced: true,
     state() {
         return {
             coaches:

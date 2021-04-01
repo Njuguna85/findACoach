@@ -2,14 +2,15 @@
   <section>FILTER</section>
   <section>
     <div class="controls">
-      <button @click="logst">Refresh</button>
+      <button>Refresh</button>
       <router-link to="/register">Register as a coach</router-link>
     </div>
-    <ul>
+    <ul v-if="hasCoaches">
       <li v-for="coach in filteredCoaches" :key="coach.id">
         {{ coach.firstName }}
       </li>
     </ul>
+    <h3 v-else>No Coaches Found</h3>
   </section>
 </template>
 
@@ -19,12 +20,11 @@ export default {
     filteredCoaches() {
       return this.$store.getters['coaches/coaches'];
     },
-  },
-  methods: {
-    logst() {
-      console.log(this.$store.state.coaches);
+    hasCoaches() {
+      return this.$store.getters['coaches/hasCoaches'];
     },
   },
+  methods: {},
 };
 </script>
 
