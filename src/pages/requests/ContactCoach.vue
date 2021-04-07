@@ -53,12 +53,12 @@ export default {
       this.validateForm();
 
       if (this.formIsValid == false) return;
-    
+
       //  store in ther vuex
       this.$store.dispatch('requests/contactCoach', {
         email: this.email.value,
         message: this.message.value,
-        coachId: this.$route.id,
+        coachId: this.$route.params.id,
       });
 
       this.$router.replace('/coaches');

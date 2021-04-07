@@ -3,7 +3,7 @@ export default {
         const coachData = {
             id: context.rootGetters.userId,
             firstName: data.first,
-            lastname: data.last,
+            lastName: data.last,
             hourlyRate: data.rate,
             description: data.desc,
             areas: data.areas
