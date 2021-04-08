@@ -33,6 +33,9 @@ export default {
 
         if (!response.ok) {
             // error
+
+            const error = new Error(responseData.message || 'Failed to Fetch')
+            throw error;
         }
 
         const coaches = [];
