@@ -31,7 +31,6 @@ export default {
             const error = new Error(responseData.message || 'Failed to fetch request.');
             throw error;
         }
-
         const requests = [];
 
         for (const key in responseData) {
