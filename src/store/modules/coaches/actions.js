@@ -10,14 +10,14 @@ export default {
 
         }
         const token = context.rootGetters.token;
-
+        
         const response = await fetch(`https://vue-http-demo-1a915-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`, {
             method: 'PUT',
             body: JSON.stringify(coachData)
         });
 
-        const responseData = await response.json();
-        console.log(responseData);
+        // const responseData = await response.json();
+        
         if (!response.ok) {
             // error
         }

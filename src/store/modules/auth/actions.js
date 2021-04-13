@@ -10,7 +10,7 @@ export default {
         });
 
         const responseData = await response.json();
-       
+
         if (!response.ok) {
             const error = new Error(responseData.message || "Failed to Authenticate");
             throw error;
@@ -46,4 +46,11 @@ export default {
             tokenExpiration: responseData.expiresIn
         })
     },
+    logout(context) {
+        context.commit('setUser', {
+            token: null,
+            userId: null,
+            tokenExpiration: null
+        })
+    }
 };

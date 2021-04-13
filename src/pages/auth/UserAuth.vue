@@ -77,6 +77,10 @@ export default {
         } else {
           await this.$store.dispatch('signup', actonPaylod);
         }
+
+        const redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
+
+        this.$router.replace(redirectUrl);
       } catch (error) {
         this.error = error.message || 'Failed to sign up, try later';
       }
