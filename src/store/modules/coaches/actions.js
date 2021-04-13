@@ -10,14 +10,14 @@ export default {
 
         }
         const token = context.rootGetters.token;
-        
-        const response = await fetch(`https://vue-http-demo-1a915-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`, {
+
+        const response = await fetch(`${process.env.VUE_APP_FIREBASE_DB}coaches/${userId}.json?auth=${token}`, {
             method: 'PUT',
             body: JSON.stringify(coachData)
         });
 
         // const responseData = await response.json();
-        
+
         if (!response.ok) {
             // error
         }
@@ -28,10 +28,11 @@ export default {
         });
     },
     async loadCoaches(context, payload) {
+
         if (!payload.forceRefresh && !context.getters.shouldUpdate) {
             return;
         }
-        let response = await fetch(`https://vue-http-demo-1a915-default-rtdb.firebaseio.com/coaches.json`);
+        let response = await fetch(`${process.env.VUE_APP_FIREBASE_DB}coaches.json`);
 
         const responseData = await response.json();
 
