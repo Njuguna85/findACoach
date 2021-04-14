@@ -1,5 +1,5 @@
 <template>
-  <form @keyup.enter="submitForm" @submit.prevent="submitForm">
+  <form  @submit.prevent="submitForm">
     <div class="form-control">
       <label for="email">Email</label>
       <input type="email" name="email" id="email" v-model.trim="email.value" />
